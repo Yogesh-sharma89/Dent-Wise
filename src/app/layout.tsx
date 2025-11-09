@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/sonner"
 
-import {
-  ClerkProvider,
-} from '@clerk/nextjs'
 
-const inter = Inter({subsets:['latin']});
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "DentWise  - AI Powered Dental Assistant",
-  description: "Get instant dental advice through voice calls with our AI assistant . Available 24/7",
+  description: "Get instant dental advice through voice calls with our AI assistant . Available 24*7",
 };
 
 export default function RootLayout({
@@ -19,14 +26,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+     appearance={{
+          variables: {
+            colorPrimary: "#e78a53",
+            colorBackground: "#f3f4f6",
+            colorText: "#111827",
+            colorTextSecondary: "#6b7280",
+            colorInputBackground: "#f3f4f6",
+          },
+        }}
+    >
+
+   
     <html lang="en">
       <body
-        className={inter.className}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark hide scroll-smooth`}
       >
-        {children}
+       <main>
+         {children}
+       </main>
+       <Toaster richColors/>
       </body>
     </html>
-    </ClerkProvider>
+     </ClerkProvider>
   );
 }
