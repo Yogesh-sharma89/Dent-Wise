@@ -3,6 +3,14 @@ import { SignUpButton } from '@clerk/nextjs'
 import { Button } from '@/components/ui/button';
 import { CircleCheckBigIcon } from 'lucide-react';
 
+/**
+* Renders the Pricing section for the landing page with three subscription plans (Free, AI basic, AI Pro).
+* @example
+* Pricing()
+* <section className='relative px-15 py-6 ...'>...</section>
+* @param {{Object}} {{props}} - Optional props object (none used currently).
+* @returns {{JSX.Element}} React element containing the pricing section markup.
+**/
 const Pricing = () => {
   return (
     <section className='relative px-15 py-6 overflow-hidden bg-linear-to-b from-background via-muted/30         to-background'>

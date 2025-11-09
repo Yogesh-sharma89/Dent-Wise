@@ -14,6 +14,14 @@ import {
   SignUpButton,
 } from "@clerk/nextjs";
 
+/**
+* Renders the Home page composed of the header, hero, feature sections, pricing, CTA, and footer in a single layout.
+* @example
+* Home()
+* <div className="min-h-screen bg-background">...</div>
+* @param {{void}} {{none}} - No parameters.
+* @returns {{JSX.Element}} Return a JSX element representing the Home page layout.
+**/
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">

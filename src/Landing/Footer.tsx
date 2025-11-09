@@ -1,6 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
+/**
+* Renders the footer for the DentWise landing page with product, support, and legal links.
+* @example
+* Footer()
+* <footer>...JSX element...</footer>
+* @param {{void}} {{none}} - This component takes no props.
+* @returns {{JSX.Element}} Footer JSX element for the landing page.
+**/
 const Footer = () => {
   return (
     <footer className=" border-t bg-muted/30">

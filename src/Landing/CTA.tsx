@@ -4,6 +4,13 @@ import { CalendarIcon, MicIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
+/**
+* Renders a call-to-action hero section for the landing page with headline, badges, CTA buttons, and an illustrative image.
+* @example
+* CTA()
+* <section className="relative overflow-hidden px-6 py-15 bg-linear-to-br from-muted/10 via-background to-muted/5">...</section>
+* @returns {{JSX.Element}} Rendered CTA section as a JSX element.
+**/
 const CTA = () => {
   return (
     <section className="relative overflow-hidden px-6 py-15 bg-linear-to-br from-muted/10 via-background to-muted/5">

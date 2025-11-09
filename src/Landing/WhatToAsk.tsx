@@ -2,6 +2,14 @@ import { MessageCircleIcon, MessageSquareIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
+/**
+* Renders the "What to Ask" landing section with AI-powered dental Q&A examples, chat bubbles, and an illustrative image.
+* @example
+* WhatToAsk()
+* <section className="relative px-6 py-5 ...">...</section>
+* @param {{object}} {{props}} - Optional React props object (none required for this component).
+* @returns {{JSX.Element}} Rendered JSX section for the landing page.
+**/
 const WhatToAsk = () => {
   return (
     <section className="relative px-6 py-5  overflow-hidden bg-linear-to-b from-background to-muted/10 ">

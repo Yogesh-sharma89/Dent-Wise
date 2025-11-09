@@ -19,6 +19,14 @@ import {
 import { toast } from "sonner";
 
 
+/**
+* Renders the DentWise landing page header with logo, navigation links, and authentication controls.
+* @example
+* Header()
+* <nav className="...">...JSX header markup...</nav>
+* @param {Object} props - Optional component props (unused).
+* @returns {JSX.Element} The Header JSX element for the landing page.
+**/
 const Header = () => {
 
     

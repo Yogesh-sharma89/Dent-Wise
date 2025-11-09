@@ -4,6 +4,14 @@ import { Calendar, Mic, StarIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
+/**
+* Renders the Hero section for the landing page showcasing the AI-powered dental assistant.
+* @example
+* Hero()
+* <section>...</section>
+* @param {{Object}} {{props}} - Optional props object for future customization (unused).
+* @returns {{JSX.Element}} The JSX element representing the hero section.
+**/
 const Hero = () => {
   return (
     <section className="relative h-screen overflow-hidden  w-full pt-10">
