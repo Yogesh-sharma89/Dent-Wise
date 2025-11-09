@@ -10,6 +10,14 @@ import {
 import { useTheme } from "next-themes"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
 
+/**
+* Render a Sonner toaster component with a theme-aware default, custom icons, and consistent styling.
+* @example
+* Toaster({ position: 'bottom-right' })
+* <Toaster />
+* @param {{ToasterProps}} {{props}} - Props forwarded to the underlying Sonner toaster component.
+* @returns {{JSX.Element}} Rendered Sonner toaster element.
+**/
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme()
 

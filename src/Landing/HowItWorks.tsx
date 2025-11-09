@@ -4,6 +4,14 @@ import { ArrowRightIcon, Zap, ZapIcon } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
+/**
+* Renders the "How It Works" section: a three-step interactive landing UI for dental care.
+* @example
+* HowItWorks()
+* <section>JSX element containing the three-step process and CTA</section>
+* @param {Object} props - Component props (none required).
+* @returns {JSX.Element} The rendered JSX section for the landing page.
+**/
 const HowItWorks = () => {
   return (
     <section className='relative py-15 px-7 overflow-hidden max-w-6xl mx-auto'>
