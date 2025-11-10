@@ -6,13 +6,9 @@ import Hero from "@/Landing/Hero";
 import HowItWorks from "@/Landing/HowItWorks";
 import Pricing from "@/Landing/Pricing";
 import WhatToAsk from "@/Landing/WhatToAsk";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-import {
-  SignedIn,
-  SignedOut,
-  SignOutButton,
-  SignUpButton,
-} from "@clerk/nextjs";
 
 /**
 * Renders the Home page composed of the header, hero, feature sections, pricing, CTA, and footer in a single layout.
@@ -22,7 +18,12 @@ import {
 * @param {{void}} {{none}} - No parameters.
 * @returns {{JSX.Element}} Return a JSX element representing the Home page layout.
 **/
-export default function Home() {
+export default async function Home() {
+
+   const user = await currentUser();
+
+   if(user) redirect('/dashboard')
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
