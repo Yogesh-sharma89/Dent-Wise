@@ -11,13 +11,12 @@ import { redirect } from "next/navigation";
 
 
 /**
-* Renders the Home page composed of the header, hero, feature sections, pricing, CTA, and footer in a single layout.
-* @example
-* Home()
-* <div className="min-h-screen bg-background">...</div>
-* @param {{void}} {{none}} - No parameters.
-* @returns {{JSX.Element}} Return a JSX element representing the Home page layout.
-**/
+ * Render the public Home page; redirect authenticated users to "/dashboard".
+ *
+ * Retrieves the current user and performs a redirect to '/dashboard' when a user is present.
+ *
+ * @returns The JSX element containing the Home page layout (Header, Hero, HowItWorks, WhatToAsk, Pricing, CTA, and Footer).
+ */
 export default async function Home() {
 
    const user = await currentUser();
