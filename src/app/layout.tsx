@@ -21,6 +21,15 @@ export const metadata: Metadata = {
   description: "Get instant dental advice through voice calls with our AI assistant . Available 24*7",
 };
 
+/**
+ * Root layout component that wraps the app with authentication, fonts, and global UI elements.
+ *
+ * Renders a ClerkProvider configured with theme variables, an html/body scaffold that applies
+ * global fonts and utility classes, a UserSync initializer, the main content area, and a Toaster.
+ *
+ * @param children - The application UI to render inside the layout's `<main>` element.
+ * @returns The top-level JSX layout containing the authentication provider, page scaffold, and global UI components.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

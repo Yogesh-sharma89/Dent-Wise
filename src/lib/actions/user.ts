@@ -4,6 +4,11 @@ import { currentUser } from "@clerk/nextjs/server";
 import {prisma} from '../prisma';
 
 
+/**
+ * Ensure a Clerk-authenticated user exists in the database, creating a new record if none is found.
+ *
+ * @returns An existing user record or a newly created user record, or `undefined` if there is no authenticated requester or an error occurred.
+ */
 export async function AddUserToDb(){
 
     try{
