@@ -22,6 +22,9 @@ export default async function Home() {
 
    const user = await currentUser();
 
+
+    if(user?.primaryEmailAddress?.emailAddress === process.env.ADMIN_EMAIL) redirect('/admin')
+
    if(user) redirect('/dashboard')
 
   return (
