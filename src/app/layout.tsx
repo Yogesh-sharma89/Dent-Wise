@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner"
 import UserSync from "@/components/UserSync";
+import TanStackProvider from "@/components/Providers/TanStackQueryProvider";
 
 
 const geistSans = Geist({
@@ -27,6 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <TanStackProvider>
     <ClerkProvider
      appearance={{
           variables: {
@@ -38,8 +40,6 @@ export default function RootLayout({
           },
         }}
     >
-
-   
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark hide scroll-smooth`}
@@ -52,5 +52,6 @@ export default function RootLayout({
       </body>
     </html>
      </ClerkProvider>
+     </TanStackProvider>
   );
 }

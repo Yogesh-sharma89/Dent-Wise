@@ -30,7 +30,6 @@ import { toast } from "sonner";
 const Header = () => {
 
     
-
   
   return (
     <nav className=" fixed inset-0 z-100 px-6 py-2 border-b border-border/80 h-16 bg-background/80 backdrop-blur-md">
@@ -105,6 +104,8 @@ const Header = () => {
                
            
           </SignedIn>
+
+          
         </div>
       </div>
     </nav>
