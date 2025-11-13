@@ -21,7 +21,7 @@ const DoctorsManagment = () => {
 
   const {data:doctors = [] , isLoading} = useGetDoctors();
 
-   const [selectedDoctor,setselectedDoctor] = useState<Doctor | null>();
+   const [selectedDoctor,setselectedDoctor] = useState<Doctor | null>(null);
    console.log(selectedDoctor);
 
    const handleEditDoctor = (doctor:Doctor)=>{

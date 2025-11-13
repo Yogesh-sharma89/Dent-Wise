@@ -52,7 +52,7 @@ const AdminDashboard = () => {
 
         
 
-        <div className='min-w-[1200px] mx-auto px-6 py-8 pt-22'>
+        <div className='max-w-[1200px] mx-auto px-6 py-8 pt-22'>
 
             {/* banner section  */}
 
@@ -62,14 +62,14 @@ const AdminDashboard = () => {
 
                     <div className='inline-flex items-center gap-2 py-1 px-4 bg-primary/10 rounded-full border border-primary/20'>
 
-                    <div className='w-2 h-2 bg-primary rounded-full animte-pulse'></div>
-                    <span className='text-sm font-medium text-primary'>Admin Dashboard</span>
+                        <div className='w-2 h-2 bg-primary rounded-full animte-pulse'></div>
+                        <span className='text-sm font-medium text-primary'>Admin Dashboard</span>
 
                     </div>
 
 
                     <div>
-                        <h1 className='lg:text-4xl font-bold mb-2'>
+                        <h1 className='lg:text-4xl text-3xl font-bold mb-2'>
                             Welcome back {user?.firstName || "Admin"}!
 
                         </h1>
@@ -77,10 +77,6 @@ const AdminDashboard = () => {
                             Manage doctors, oversee appointments and monitor your dental practice performance
                         </p>
                     </div>
-
-                    
-
-                    
 
                 </div>
 
