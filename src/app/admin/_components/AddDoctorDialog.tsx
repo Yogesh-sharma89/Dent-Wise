@@ -1,6 +1,6 @@
 'use client'
 
-import { DialogHeader , Dialog, DialogContent, DialogTitle, DialogDescription, DialogFooter, DialogClose} from '@/components/ui/dialog'
+import { DialogHeader , Dialog, DialogContent, DialogTitle, DialogDescription, DialogFooter} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useCreateDoctor } from '@/hooks/use-doctor'
@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import { Loader2Icon } from 'lucide-react'
 import { formatPhoneNumber } from '@/lib/utils'
 import { Gender } from '@/generated/enums'
-import { Textarea } from '@/components/ui/textarea'
+
 
 
 interface addDoctorState{
@@ -69,8 +69,6 @@ const AddDoctorDialog = ({isOpen,onClose}:addDoctorState) => {
     })
   }
 
-  const [bio,setbio] = useState('');
-  const maxChars = 500
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose} defaultOpen={false}>
