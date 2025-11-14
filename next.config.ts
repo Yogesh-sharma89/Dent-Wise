@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       },
       {
         hostname:'avatar.iran.liara.run'
+      },
+      {
+        hostname:'img.clerk.com'
       }
     ]
   }
