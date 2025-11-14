@@ -41,9 +41,13 @@ const VapiWidget = () => {
    useEffect(()=>{
       if(!isSpeaking) return;
 
-       const newHeights = Array(5).map(()=>(Math.random() * 50 +20))
+       const increaseBarHeight  = ()=>{
+         const newHeights = Array.from({ length: 5 }, () => Math.random() * 50 + 20);
 
-       setbarHeights([...newHeights]);
+         setbarHeights(newHeights);
+       }
+
+       increaseBarHeight();
 
    },[isSpeaking])
 
@@ -120,6 +124,12 @@ const VapiWidget = () => {
 
    //toggle call 
    const toggleCall = async()=>{
+
+     if(!vapi){
+      console.log('vapi is not initialized yet');
+      return;
+     }
+     
     if(callactive ) vapi?.stop();
 
     else{
@@ -245,7 +255,7 @@ const VapiWidget = () => {
         </Card>
 
          {/* user card  */}
-         <Card className='bg-card/90 transitin-all duration-300 hover:border-primary/50 overflow-hidden relative border baackdrop-blur-sm border-border '>
+         <Card className='bg-card/90 transition-all duration-300 hover:border-primary/50 overflow-hidden relative border baackdrop-blur-sm border-border '>
 
           <div className='flex items-center justify-center flex-col p-6 relative aspect-video'>
 
