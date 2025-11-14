@@ -2,18 +2,17 @@
 
 import { UserButton, useUser } from "@clerk/nextjs";
 import { Calendar, Crown, HomeIcon, Mic } from "lucide-react";
-import { useTheme } from "next-themes";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { Sun, Moon } from "lucide-react";
+
 
 const Navbar = () => {
-  const { user } = useUser();
+  const { user ,isLoaded } = useUser();
   const pathname = usePathname();
 
-    const { theme, setTheme } = useTheme();
 
   return (
     <nav className="fixed inset-0 z-50 px-4 py-2 border-b border-border/60 bg-background/80 backdrop-blur-md h-16">
