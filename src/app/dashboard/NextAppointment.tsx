@@ -12,17 +12,17 @@ const NextAppointment = async () => {
 
   const upcomingConfirmedAppointments = appointments?.filter((appointment)=>{
 
-    const appoiontmentDate = parseISO(appointment.date);
+    const appointmentDate = parseISO(appointment.date);
 
     const today = new Date();
 
-    const isUpComing = isSameDay(appoiontmentDate,today)  || isAfter(appoiontmentDate,today)
+    const isUpComing = isSameDay(appointmentDate,today)  || isAfter(appointmentDate,today)
 
-    return isUpComing && appointment.status=='confirmed'
+    return isUpComing && appointment.status==='confirmed'
   })
 
   //earliest appointments 
-  if(upcomingConfirmedAppointments?.length==0) return <NoNextAppointments/>
+  if(upcomingConfirmedAppointments?.length===0) return <NoNextAppointments/>
 
   const nextAppointment = upcomingConfirmedAppointments && upcomingConfirmedAppointments[0];
 
@@ -91,7 +91,7 @@ const NextAppointment = async () => {
 
               <div>
                 <h4 className="text-lg font-semibold  mb-1">{formattedDate}</h4>
-                <p className="text-sm text-muted-foreground">{getDay(nextAppointment.date)}</p>
+                <p className="text-sm text-muted-foreground">{format(appointmentDate,'EEEE')}</p>
               </div>
 
             </div>

@@ -141,10 +141,6 @@ const VapiWidget = () => {
             setCallEnded(false);
             setMessages([]);
 
-            // const result  = await axios.post('/api/create-vapi-callid');
-            // const callId = result.data.id;
-            // console.log(callId)
-
             if(!process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID){
                throw new Error('Missing vapi assitant id.')
             }

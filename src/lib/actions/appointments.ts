@@ -84,7 +84,7 @@ export async function getUserAppointments(){
     if(!user) throw new Error('User data not found!')
 
 
-    const userAppoitmentsData = await prisma.appointment.findMany({
+    const userAppointmentsData = await prisma.appointment.findMany({
         where:{userId:user.id},
         include:{
             user:{select:{firstName:true,lastName:true,email:true}},
@@ -93,7 +93,7 @@ export async function getUserAppointments(){
         orderBy:[{date:'asc'},{time:'asc'}]
     })
 
-    return userAppoitmentsData.map((appointment)=>(
+    return userAppointmentsData.map((appointment)=>(
         {
             ...appointment,
             patientName:`${appointment.user.firstName} ${appointment.user.lastName}`.trim(),
@@ -107,6 +107,7 @@ export async function getUserAppointments(){
 
   }catch(err){
     console.log('Error in fetching user all appointements : '+err);
+    return [];
 
   }
 }

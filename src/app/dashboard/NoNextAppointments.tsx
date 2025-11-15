@@ -15,14 +15,18 @@ const NoNextAppointments = () => {
 
         </CardTitle>
 
-        <CardContent>
+       
+      </CardHeader>
+
+
+       <CardContent>
             <div className='text-center  py-8 text-muted-foreground'>
 
                 <div className='size-16 bg-muted/30 rounded-xl flex items-center justify-center mx-auto mb-4'>
                     <Calendar className='size-10 opacity-60'/>
                 </div>
 
-                <p className='text-xm mb-3'>
+                <p className='text-sm mb-3'>
                     No upcoming Appointments
                 </p>
 
@@ -34,7 +38,6 @@ const NoNextAppointments = () => {
 
             </div>
         </CardContent>
-      </CardHeader>
 
     </Card>
   )

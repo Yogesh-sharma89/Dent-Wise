@@ -14,7 +14,7 @@ const MainSection = () => {
       <Card className='backdrop-blur-lg group  bg-card/90 relative overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30'>
 
         {/* bg gradient  */}
-        <div className='absolute inset-0 bg-linear-to-br from=primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+        <div className='absolute inset-0 bg-linear-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
 
         </div>
 
@@ -81,7 +81,7 @@ const MainSection = () => {
       <Card className='backdrop-blur-lg bg-card/90 group relative overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30'>
 
         {/* bg gradient  */}
-        <div className='absolute inset-0 bg-linear-to-br from=primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+        <div className='absolute inset-0 bg-linear-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
 
         </div>
 
@@ -132,7 +132,7 @@ const MainSection = () => {
             <div className='w-full mt-6'>
               <Link href={'/appointments'}>
              
-              <Button size={'lg'} variant={'outline'} className='w-full text-center py-2 inline-flex text-white  items-center gap-2'>
+              <Button size={'lg'} variant={'outline'} className='w-full text-center py-2 inline-flex  items-center gap-2'>
                  <Calendar/>
                  <span className='font-medium'>Schedule now</span>
               </Button>
