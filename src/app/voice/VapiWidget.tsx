@@ -7,7 +7,6 @@ import { Card } from '@/components/ui/card';
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import axios from 'axios';
 import Vapi from '@vapi-ai/web';
 
 const VapiWidget = () => {
@@ -55,7 +54,11 @@ const VapiWidget = () => {
    useEffect(()=>{
 
          const vapiInstance = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY as string);
-          setVapi(vapiInstance);
+          const updateVapi = ()=>{
+            setVapi(vapiInstance);
+          }
+
+          updateVapi();
 
      const handleCallStart = ()=>{
         console.log('call started');
@@ -138,11 +141,11 @@ const VapiWidget = () => {
             setCallEnded(false);
             setMessages([]);
 
-            const result  = await axios.post('/api/create-vapi-callid');
-            const callId = result.data.id;
-            console.log(callId)
+            if(!process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID){
+               throw new Error('Missing vapi assitant id.')
+            }
 
-            await vapi?.start(result.data.assistantId)
+            await vapi?.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID)
 
             
             
