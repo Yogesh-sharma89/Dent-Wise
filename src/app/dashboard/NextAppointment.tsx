@@ -1,7 +1,7 @@
 import { getUserAppointments } from "@/lib/actions/appointments";
-import { format, getDay, isAfter, isSameDay, parseISO } from "date-fns";
+import { format, isAfter, isSameDay, parseISO } from "date-fns";
 import NoNextAppointments from "./NoNextAppointments";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, ClockIcon, UserIcon } from "lucide-react";
 
 const NextAppointment = async () => {

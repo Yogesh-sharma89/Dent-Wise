@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner"
@@ -8,11 +9,28 @@ import TanStackProvider from "@/components/Providers/TanStackQueryProvider";
 import { dark } from '@clerk/themes'
 
 
+// import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// const Geist = localFont({
+//   src: [
+//     { path: "/fonts/geist/geist-v4-latin-100.woff2", weight: "100" },
+//     { path: "/fonts/geist/geist-v4-latin-200.woff2", weight: "200" },
+//     { path: "/fonts/geist/geist-v4-latin-300.woff2", weight: "300" },
+//     { path: "/fonts/geist/geist-v4-latin-regular.woff2", weight: "400" },
+//     { path: "/fonts/geist/geist-v4-latin-500.woff2", weight: "500" },
+//     { path: "/fonts/geist/geist-v4-latin-600.woff2", weight: "600" },
+//     { path: "/fonts/geist/geist-v4-latin-700.woff2", weight: "700" },
+//     { path: "/fonts/geist/geist-v4-latin-800.woff2", weight: "800" },
+//     { path: "/fonts/geist/geist-v4-latin-900.woff2", weight: "900" },
+//   ],
+//   variable: "--font-geist",
+//   display: "swap",
+// });
+
+const geist = Geist({
+   variable: "--font-geist",
   subsets: ["latin"],
-});
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -45,7 +63,7 @@ export default function RootLayout({
     >
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark hide scroll-smooth`}
+        className={`${geist.variable}} ${geistMono.variable} antialiased dark hide scroll-smooth`}
       >
        <UserSync/>
        <main>

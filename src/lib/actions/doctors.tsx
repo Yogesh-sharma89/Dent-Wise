@@ -108,7 +108,6 @@ export async function editDoctor(input:editInput){
             name:input.name,
             email:input.email,
             speciality:input.speciality,
-            bio:input.bio,
             gender:input.gender,
             phone:input.phone,
             isActive:input.isActive
@@ -121,4 +120,47 @@ export async function editDoctor(input:editInput){
     console.log("error occured while editing doctor in action doctor : "+err);
     throw new Error("Failed to edit doctor in editdoctor sever function")
    }
+}
+
+
+export async function getAvailableDoctors(){
+    try{
+
+        const availableDoctors = await prisma.doctor.findMany({
+            where:{isActive:true},
+            include:{
+                _count:{
+                    select:{appointments:true}
+                }
+            },
+            orderBy:{name:'asc'}
+        })
+
+        return availableDoctors.map((doctor)=>(
+            {
+                ...doctor,appointmentCount:doctor._count.appointments
+            }
+        ))
+
+    }catch(err){
+        console.log('Error occured while fetching available doctors : '+err);
+        throw new Error('Failed to fetch available doctors');
+    }
+}
+
+
+export async function getUniqueDoctor(doctorId:string){
+    try{
+
+        const doctor = await prisma.doctor.findUnique({
+            where:{id:doctorId},
+            select:{name:true,email:true,speciality:true,imageUrl:true}
+        })
+
+        return doctor;
+
+    }catch(err){
+        console.log('Error in fetching unique doctor details '+err);
+        throw new Error('Failed to fetch specific doctor information');
+    }
 }

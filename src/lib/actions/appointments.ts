@@ -113,4 +113,74 @@ export async function getUserAppointments(){
 }
 
 
+export async function getBookedTimeSlots(doctorId:string,date:string){
+    try{
+
+        const appointments = await prisma.appointment.findMany({
+            where:{
+                doctorId,
+                date:new Date(date), 
+                status:{
+                    in:['completed','confirmed']
+                }
+            },
+            select:{time:true}
+        })
+
+         return appointments.map((appointment)=>appointment.time)
+
+    }catch(err){
+       console.log('Error in fetching particualr doctor booked time slot : '+err);
+       throw new Error('Failed to fetch doctors booked time');
+    }
+}
+
+interface BookAppointment{
+doctorId:string,
+date:string,
+time:string,
+reason?:string
+}
+
+export async function bookAppointment(input:BookAppointment){
+    try{
+
+        const {userId} = await auth();
+
+        if(!userId) throw new Error('Please auhenticate on our platform before booking an appointment')
+
+        if(!input.doctorId || !input.date || !input.time) throw new Error('doctor, name and date are required to book an appointment')
+
+
+       const user = await prisma.user.findUnique({where:{clerkId:userId}});
+
+      if(!user) throw new Error('User not found! Please set up your account properly before booking an appointment')
+
+      const newAppointment = await prisma.appointment.create({
+        data:{
+            doctorId:input.doctorId,
+            userId:user.id,
+            date:new Date(input.date),
+            time:input.time,
+            reason:input.reason || 'General Consultation',
+            status:'confirmed'
+        },
+        include:{
+            user:{
+                select:{firstName:true,lastName:true,email:true}
+            },
+            doctor:{select:{name:true,email:true,imageUrl:true}}
+        }
+
+      })
+
+      return newAppointment;
+
+    }catch(err){
+        console.log('Error in booking a new appoinment '+err);
+        throw new Error('Failed to book an appointment');
+    }
+}
+
+
 
