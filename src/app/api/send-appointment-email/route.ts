@@ -18,7 +18,7 @@ export async function POST(request:NextRequest){
         } = body;
 
         if(!userEmail || !doctorName || !appointmentDate || !appointmentTime){
-            return NextResponse.json({error:'Missing required fields',status:404})
+            return NextResponse.json({error:'Missing required fields'},{status:400})
         }
 
         const {data,error} = await resend.emails.send({
@@ -35,13 +35,13 @@ export async function POST(request:NextRequest){
 
         if(error){
             console.log('Resend eror : '+error);
-            return NextResponse.json({error:'Failed to send email',status:500})
+            return NextResponse.json({error:'Failed to send email'},{status:500})
         }
 
         return NextResponse.json({message:'Email sent successfully',status:200,emailId:data.id})
 
     }catch(err){
         console.log('Failed to send email : '+err)
-        return NextResponse.json({error:'Server side error',status:500})
+        return NextResponse.json({error:'Server side error'},{status:500})
     }
 }

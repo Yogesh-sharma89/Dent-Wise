@@ -89,7 +89,7 @@ const AppointmentConfirmationEmail = ({
           <Section style={buttonContainer}>
             <Link
               style={button}
-              href={process.env.NEXT_PUBLIC_APP_URL + "/appointments"}
+              href={(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000') + "/appointments"}
             >
               View My Appointments
             </Link>

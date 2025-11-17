@@ -80,7 +80,7 @@ const AppointmentClient = () => {
                 })
               })
 
-              const result = emailResponse.json();
+              const result = await emailResponse.json();
               console.log(result);
 
             }catch(err){
