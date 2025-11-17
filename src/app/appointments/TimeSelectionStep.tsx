@@ -5,7 +5,7 @@ import { useGetUniqueDoctor } from "@/hooks/use-doctor";
 import {
   APPOINTMENT_TYPES,
   getAvailableTimeSlots,
-  getNext5Days,
+  getNext6Days,
 } from "@/lib/utils";
 import { ChevronLeftIcon, ClockIcon } from "lucide-react";
 import { clsx } from "clsx";
@@ -38,7 +38,7 @@ const TimeSelectionStep = ({
     selectedDate
   );
 
-  const availableDates = getNext5Days();
+  const availableDates = getNext6Days();
 
   const availableTimeSlot = getAvailableTimeSlots();
 

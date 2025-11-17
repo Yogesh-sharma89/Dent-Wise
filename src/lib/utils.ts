@@ -34,7 +34,7 @@ export const formatPhoneNumber = (value: string) => {
 
 
 //  ai generated 🎉
-export const getNext5Days = () => {
+export const getNext6Days = () => {
   const dates = [];
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);

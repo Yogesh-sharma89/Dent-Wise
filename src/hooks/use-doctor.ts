@@ -62,7 +62,7 @@ export function useAvailableDoctors(){
 
 export  function useGetUniqueDoctor(doctorId:string){
     const result = useQuery({
-        queryKey:['getUniqueDoctor'],
+        queryKey:['getUniqueDoctor',doctorId],
         queryFn:()=>getUniqueDoctor(doctorId),
     })
 

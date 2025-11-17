@@ -63,7 +63,7 @@ export default function RootLayout({
     >
     <html lang="en">
       <body
-        className={`${geist.variable}} ${geistMono.variable} antialiased dark hide scroll-smooth`}
+        className={`${geist.variable} ${geistMono.variable} antialiased dark hide scroll-smooth`}
       >
        <UserSync/>
        <main>

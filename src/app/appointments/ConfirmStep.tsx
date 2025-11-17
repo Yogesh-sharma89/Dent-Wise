@@ -29,7 +29,7 @@ const ConfirmStep = ({
   onConfirm,
   isBooking,
 }: bookingStepProps) => {
-    
+
   const appointmentType = APPOINTMENT_TYPES.find((t) => t.id === type);
 
   const { data: doctorInfo, isLoading } = useGetUniqueDoctor(dentistId);
@@ -62,19 +62,10 @@ const ConfirmStep = ({
           <CardTitle>Appointment Summary</CardTitle>
         </CardHeader>
 
-        <CardContent className="sapce-y-6">
+        <CardContent className="space-y-6">
           {/* doctor info  */}
 
-          {isLoading ? (
-              <div className="flex items-center space-x-4">
-                <Skeleton className="h-12 w-12 rounded-full" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-[250px]" />
-                  <Skeleton className="h-4 w-[200px]" />
-                </div>
-              </div>
-            )
-            :
+          
             
             <div className="flex items-center gap-5 mb-7">
               {/* // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain */}
@@ -88,7 +79,7 @@ const ConfirmStep = ({
                 <p className="text-sm text-muted-foreground">{doctorInfo?.speciality}</p>
               </div>
             
-          </div>}
+          </div>
 
           {/* appointment info  */}
 
