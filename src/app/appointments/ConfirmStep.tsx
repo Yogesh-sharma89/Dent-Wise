@@ -6,7 +6,6 @@ import { useGetUniqueDoctor } from "@/hooks/use-doctor";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
-import nextConfig from '../../../next.config';
 
 interface bookingStepProps {
   dentistId: string;
@@ -151,8 +150,8 @@ const ConfirmStep = ({
              <Button variant={'outline'} onClick={onModify}>Modify Booking</Button>
             <Button variant={'default'} onClick={onConfirm} disabled={isBooking}>
              {isBooking ? 
-                <div className="inline-flex gap-1">
-                    <Loader2Icon className="size-8 animate-spin"/>
+                <div className="inline-flex items-center gap-1">
+                    <Loader2Icon className="size-6 animate-spin"/>
                     <span>Booking...</span>
                 </div>
                 :

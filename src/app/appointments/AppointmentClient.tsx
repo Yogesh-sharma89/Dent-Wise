@@ -12,6 +12,7 @@ import { APPOINTMENT_TYPES } from '@/lib/utils';
 import Image from 'next/image';
 import { Calendar1Icon, ClockIcon } from 'lucide-react';
 import { format } from 'date-fns';
+import AppointmentConfirmationModal from './AppointmentConfirmationModal';
 
 const AppointmentClient = () => {
 
@@ -61,7 +62,30 @@ const AppointmentClient = () => {
 
             setbookedAppoinment(appointment)
 
-            // show confirmation  modal and send the email
+            try{
+
+              const emailResponse = await fetch('/api/send-appointment-email',{
+                method:'POST',
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    userEmail:appointment.user.email,
+                    doctorName:appointment.doctor.name,
+                    appointmentDate:format(new Date(appointment.date),'EEEE MMM d, yyyy'),
+                    appointmentType:appointmentType?.name,
+                    appointmentTime:appointment.time,
+                    duration:appointmentType?.duration,
+                    price:appointmentType?.price
+                })
+              })
+
+              const result = await emailResponse.json();
+              console.log(result);
+
+            }catch(err){
+                  console.log('Error in sending confirmation email : '+err);
+            }
 
             setshowConfirmationModal(true);
 
@@ -137,13 +161,27 @@ const AppointmentClient = () => {
                 />
             }
 
-            
-        
-
         </div>
 
 
-{/* show current user all existing appointements  */}
+        {/* appointment confirmation modal  */}
+
+        {
+            bookedAppointment && 
+            <AppointmentConfirmationModal
+             open={showConfirmationModal}
+             onOpenChange= {setshowConfirmationModal}
+             appointmentDetails={{
+                userEmail:bookedAppointment.user.email,
+                doctorName:bookedAppointment.doctor.name,
+                appointmentDate:format(new Date (bookedAppointment.date),'EEEE, MMMM d, yyyy'),
+                appointmentTime:bookedAppointment.time
+             }}
+            />
+        }
+
+
+     {/* show current user all existing appointements  */}
 
    {
     userAppointments.length>0 && 
