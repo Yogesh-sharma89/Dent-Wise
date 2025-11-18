@@ -88,6 +88,10 @@ export async function editDoctor(input:editInput){
 
     if(!user) throw new Error('User account not found !')
 
+    const adminEmail = process.env.ADMIN_EMAIL;
+
+    if(!adminEmail) throw new Error('Admin email not configured');
+    
     if(user.email !== process.env.ADMIN_EMAIL) throw new Error('Only Admin can edit existing doctors')
       
      //validate coming input 
