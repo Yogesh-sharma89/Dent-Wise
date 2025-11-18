@@ -40,6 +40,7 @@ export function useUpdateDoctor(){
         onSuccess:()=>{
             console.log('doctor updated successfully in hook')
             queryClient.invalidateQueries({queryKey:['getDoctors']})
+            queryClient.invalidateQueries({queryKey:['getAvailableDoctors']})
         },
         onError:(err)=>console.log('Error while updating doctor in hook '+err)
     })

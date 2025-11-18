@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { Calendar, Clock, User, UserCheck, UserIcon } from 'lucide-react'
+import { Calendar, Clock, User, UserCheck } from 'lucide-react'
 import React from 'react'
 
 interface Statsprops{

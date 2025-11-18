@@ -6,6 +6,7 @@ import Hero from "@/Landing/Hero";
 import HowItWorks from "@/Landing/HowItWorks";
 import Pricing from "@/Landing/Pricing";
 import WhatToAsk from "@/Landing/WhatToAsk";
+import { AddUserToDb } from "@/lib/actions/user";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -22,6 +23,8 @@ export default async function Home() {
 
    const user = await currentUser();
 
+   
+     await AddUserToDb();
 
     if(user?.primaryEmailAddress?.emailAddress === process.env.ADMIN_EMAIL) redirect('/admin')
 
