@@ -87,9 +87,9 @@ const DoctorsManagment = () => {
             {doctors.map((doctor) => (
               <div
                 key={doctor.id}
-                className="flex items-center justify-between p-4 bg-muted/30 rounded-xl border border-border/50"
+                className="flex items-center md:flex-row flex-col gap-8 md:justify-between p-4 bg-muted/30 rounded-xl border border-border/50"
               onClick={()=>setselectedDoctor(doctor)}>
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-6 md:gap-5">
                   <img
                     src={doctor.imageUrl}
                     alt={doctor.name}
@@ -106,7 +106,7 @@ const DoctorsManagment = () => {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-4 mt-1">
+                    <div className="flex md:items-center items-start md:flex-row flex-col gap-3  md:gap-4 mt-1">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <MailIcon className="h-3 w-3" />
                         {doctor.email}

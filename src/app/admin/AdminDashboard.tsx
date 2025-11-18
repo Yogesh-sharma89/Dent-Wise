@@ -10,6 +10,7 @@ import { Spinner } from "@/components/ui/spinner"
 import AdminStats from './_components/AdminStats';
 import DoctorsManagment from './_components/DoctorsManagment';
 import { useState } from 'react';
+import RecentAppointments from './_components/RecentAppointments';
 
 const AdminDashboard = () => {
 
@@ -104,6 +105,8 @@ const AdminDashboard = () => {
             />
 
             <DoctorsManagment/>
+
+            <RecentAppointments />
 
         </div>
      

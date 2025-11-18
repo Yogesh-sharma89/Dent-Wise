@@ -1,6 +1,7 @@
 'use server'
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "../prisma"
+import { AppointmentStatus } from "@/generated/enums";
 
 export async function getAppointments(){
     try{
@@ -179,6 +180,23 @@ export async function bookAppointment(input:BookAppointment){
     }catch(err){
         console.log('Error in booking a new appoinment '+err);
         throw new Error('Failed to book an appointment');
+    }
+}
+
+
+export async function updateAppointmentStatus(input:{id:string,status:AppointmentStatus}){
+    try{
+
+    const updatedAppointment = await prisma.appointment.update({
+        where:{id:input.id},
+        data:{status:input.status}
+    })
+
+    return updatedAppointment;
+
+    }catch(err){
+        console.log('Error in updating the appointment status : '+err);
+        throw new Error('Failed to update Appointment status.')
     }
 }
 
