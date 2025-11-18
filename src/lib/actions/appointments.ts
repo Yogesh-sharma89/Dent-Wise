@@ -1,6 +1,8 @@
 'use server'
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "../prisma"
+import { AppointmentStatus } from "@/generated/enums";
+import { revalidatePath } from "next/cache";
 
 export async function getAppointments(){
     try{
@@ -174,11 +176,48 @@ export async function bookAppointment(input:BookAppointment){
 
       })
 
+      revalidatePath('/appointments');
+
       return newAppointment;
 
     }catch(err){
         console.log('Error in booking a new appoinment '+err);
         throw new Error('Failed to book an appointment');
+    }
+}
+
+
+export async function updateAppointmentStatus(input:{id:string,status:AppointmentStatus}){
+    try{
+
+        const {userId} = await auth();
+
+        if(!userId){
+            throw new Error('User is not authenticated on our platform')
+        }
+
+        const user = await prisma.user.findUnique({where:{clerkId:userId}});
+
+        if(!user){
+            throw new Error('User not found ! please set up your account properly')
+        }
+
+        if(user.email !== process.env.ADMIN_EMAIL){
+            throw new Error('Only admin can update appointment status')
+        }
+
+    const updatedAppointment = await prisma.appointment.update({
+        where:{id:input.id},
+        data:{status:input.status}
+    })
+
+    revalidatePath('/admin');
+
+    return updatedAppointment;
+
+    }catch(err){
+        console.log('Error in updating the appointment status : '+err);
+        throw new Error('Failed to update Appointment status.')
     }
 }
 

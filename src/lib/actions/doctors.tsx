@@ -3,6 +3,7 @@ import { Gender } from "@/generated/enums";
 import { prisma } from "../prisma";
 import { generateAvtar } from "../utils";
 import { revalidatePath } from "next/cache";
+import { auth } from "@clerk/nextjs/server";
 
 
  
@@ -76,6 +77,22 @@ interface editInput extends Partial<doctorInput>{
 
 export async function editDoctor(input:editInput){
    try{
+
+    const {userId} =await  auth();
+
+    if(!userId){
+        throw new Error('Please login or singup before edit the doctor')
+    }
+
+    const user = await prisma.user.findUnique({where:{clerkId:userId}});
+
+    if(!user) throw new Error('User account not found !')
+
+    const adminEmail = process.env.ADMIN_EMAIL;
+
+    if(!adminEmail) throw new Error('Admin email not configured');
+
+    if(user.email !== process.env.ADMIN_EMAIL) throw new Error('Only Admin can edit existing doctors')
       
      //validate coming input 
      if(!input.name || !input.email || !input.speciality) throw new Error("Name, email and speciality are required")
@@ -113,6 +130,8 @@ export async function editDoctor(input:editInput){
             isActive:input.isActive
         }
     })
+
+    revalidatePath('/admin');
 
     return updatedDoctor;
 

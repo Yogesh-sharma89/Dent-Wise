@@ -11,7 +11,7 @@ interface Statsprops{
 
 const AdminStats = ({totalDoctors,totalAppoinments,activeDoctors,completedAppointments}:Statsprops) => {
   return (
-    <div className='grid md:grid-cols-4 mb-15 lg:gap-10 md:gap-8'>
+    <div className='grid md:grid-cols-4 mb-16 gap-5 lg:gap-10 md:gap-8'>
 
         {/* total doctor card  */}
         <Card className='border-2 hover:border-primary/30 transition-all duration-500'>
@@ -22,7 +22,7 @@ const AdminStats = ({totalDoctors,totalAppoinments,activeDoctors,completedAppoin
 
                 <div className='w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-primary/20 to-primary/10'>
 
-                <User/>
+                <User className='shrink-0'/>
 
                 </div>
 
@@ -47,7 +47,7 @@ const AdminStats = ({totalDoctors,totalAppoinments,activeDoctors,completedAppoin
 
                 <div className='w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-primary/20 to-primary/10'>
 
-                  <UserCheck/>
+                  <UserCheck className='shrink-0'/>
 
                 </div>
 
@@ -73,7 +73,7 @@ const AdminStats = ({totalDoctors,totalAppoinments,activeDoctors,completedAppoin
 
                     <div className='w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-primary/20 to-primary/10'>
 
-                    <Calendar/>
+                    <Calendar className='shrink-0'/>
 
                     </div>
 
@@ -99,7 +99,7 @@ const AdminStats = ({totalDoctors,totalAppoinments,activeDoctors,completedAppoin
 
                 <div className='w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-primary/20 to-primary/10'>
 
-                <Clock/>
+                <Clock className='shrink-0'/>
 
                 </div>
 
