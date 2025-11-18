@@ -11,7 +11,6 @@ import React, { useState } from 'react'
 import { Badge } from "@/components/ui/badge"
 import AddDoctorDialog from './AddDoctorDialog';
 import EditDoctorDialog from './EditDoctorDialog';
-import { Gender } from '@/generated/enums';
 import { Doctor } from '@/generated/client';
 
 
@@ -148,6 +147,7 @@ const DoctorsManagment = () => {
       </Card>
 
       <AddDoctorDialog isOpen = {isAddDialogOpen}  onClose= {()=>setisAddDialogOpen(false)}/>
+
         <EditDoctorDialog isOpen = {isEditDailogOpen}  onClose={handleCloseEditDialog} doctor={selectedDoctor}
          key={selectedDoctor?.id}
         />

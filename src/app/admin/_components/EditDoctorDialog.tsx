@@ -10,7 +10,7 @@ import React, { useState } from 'react'
 interface editProps{
   isOpen:boolean,
   onClose:()=>void
-  doctor:Doctor
+  doctor:Doctor | null
 }
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
