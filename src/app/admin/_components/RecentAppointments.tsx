@@ -111,7 +111,7 @@ const RecentAppointments = () => {
                 <TableRow key={appointment.id}>
                   <TableCell>
                     <div>
-                      <div className="font-medium">{`${appointment.user.firstName} ${appointment.user.lastName}`}</div>
+                      <div className="font-medium">{`${appointment.user.firstName} ${appointment.user.lastName || ''}`}</div>
                       <div className="text-sm text-muted-foreground">
                         {appointment.user.email}
                       </div>
