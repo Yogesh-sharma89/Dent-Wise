@@ -187,6 +187,22 @@ export async function bookAppointment(input:BookAppointment){
 export async function updateAppointmentStatus(input:{id:string,status:AppointmentStatus}){
     try{
 
+        const {userId} = await auth();
+
+        if(!userId){
+            throw new Error('User is not authenticated on our platform')
+        }
+
+        const user = await prisma.user.findUnique({where:{clerkId:userId}});
+
+        if(!user){
+            throw new Error('User not found ! please set up your account properly')
+        }
+
+        if(user.email !== process.env.ADMIN_EMAIL){
+            throw new Error('Only admin can update appointment status')
+        }
+
     const updatedAppointment = await prisma.appointment.update({
         where:{id:input.id},
         data:{status:input.status}

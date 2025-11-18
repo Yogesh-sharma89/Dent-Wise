@@ -11,7 +11,7 @@ interface Statsprops{
 
 const AdminStats = ({totalDoctors,totalAppoinments,activeDoctors,completedAppointments}:Statsprops) => {
   return (
-    <div className='grid md:grid-cols-4 mb-15 gap-5 lg:gap-10 md:gap-8'>
+    <div className='grid md:grid-cols-4 mb-16 gap-5 lg:gap-10 md:gap-8'>
 
         {/* total doctor card  */}
         <Card className='border-2 hover:border-primary/30 transition-all duration-500'>

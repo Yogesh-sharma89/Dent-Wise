@@ -28,7 +28,7 @@ const RecentAppointments = () => {
 
   const updateAppointmentMutation = useUpdateAppointmentStatus();
 
-  const [updatingStatusLoadingId, setupdatingStatusLoadingId] = useState<string | null>();
+  const [updatingStatusLoadingId, setupdatingStatusLoadingId] = useState<string | null>(null);
 
   const handleToggleAppointmentStatus = (appointmentId: string) => {
     setupdatingStatusLoadingId(appointmentId);
@@ -37,6 +37,11 @@ const RecentAppointments = () => {
 
     const newStatus =
       appointment?.status === "confirmed" ? "completed" : "confirmed";
+
+      if(!appointment?.id){
+       setupdatingStatusLoadingId(null);
+       return;
+      }
 
     updateAppointmentMutation.mutate(
       { id: appointment?.id, status: newStatus },
