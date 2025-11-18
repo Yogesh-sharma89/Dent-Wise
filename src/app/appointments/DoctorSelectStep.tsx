@@ -1,9 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Spinner } from "@/components/ui/spinner";
 import { useAvailableDoctors } from "@/hooks/use-doctor"
 import { MapPinIcon, PhoneCallIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
-import { async } from '../../lib/actions/doctors';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DoctorCardsLoading } from "./DoctorLoding";
