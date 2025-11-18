@@ -10,7 +10,7 @@ import React from "react";
 
 
 const Navbar = () => {
-  const { user ,isLoaded } = useUser();
+  const { user  } = useUser();
   const pathname = usePathname();
 
 

@@ -15,11 +15,6 @@ const ProPage = async() => {
     redirect('/')
   }
 
-  const {has} =await auth();
-
-  const hasPaidPlan = has({plan:'ai_basic'}) || has({plan:'ai_pro'})
-
-  console.log("User has paid plan : "+hasPaidPlan);
 
 
   return (

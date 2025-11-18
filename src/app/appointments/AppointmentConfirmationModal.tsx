@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { Calendar, CalendarIcon, CheckCircleIcon, ClockIcon, MailIcon, UserIcon } from 'lucide-react'
+import { CalendarIcon, CheckCircleIcon, ClockIcon, MailIcon, UserIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';

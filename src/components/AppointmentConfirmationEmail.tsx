@@ -37,7 +37,7 @@ const AppointmentConfirmationEmail = ({
         <Container style={container}>
           <Section style={logoContainer}>
             <Img
-              src={"/public/logo.png"}
+              src={"https://dent-wise-agiih.sevalla.app/logo.png"}
               alt="DentWise Logo"
               width={50}
               height={50}
@@ -143,14 +143,6 @@ const logoText = {
   margin: "0",
   display: "inline",
   marginLeft: "12px",
-};
-
-const h1 = {
-  color: "#1f2937",
-  fontSize: "24px",
-  fontWeight: "bold",
-  textAlign: "center" as const,
-  margin: "30px 0",
 };
 
 const text = {

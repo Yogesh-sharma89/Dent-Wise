@@ -2,7 +2,6 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Calendar } from 'lucide-react'
 import Link from 'next/link'
-import React from 'react'
 
 const NoNextAppointments = () => {
   return (

@@ -5,11 +5,6 @@ const progress_steps = ['Select Dentist','Choose Time','Confirm'];
 
 const ProgressSteps = ({currentStep}:{currentStep:number}) => {
 
-const handleActive = (stepNumber:number)=>{
-
-
-}
-
   return (
     <div className='flex items-center gap-4'>
 

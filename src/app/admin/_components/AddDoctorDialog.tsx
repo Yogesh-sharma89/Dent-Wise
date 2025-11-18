@@ -32,7 +32,6 @@ const AddDoctorDialog = ({isOpen,onClose}:addDoctorState) => {
   })
 
 
-  console.log(newDoctor);
 
   const cretaeDoctorMutation = useCreateDoctor();
 

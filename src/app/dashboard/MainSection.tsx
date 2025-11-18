@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Calendar, MailIcon, MessageSquare } from 'lucide-react'
+import { Calendar, MessageSquare } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'

@@ -33,7 +33,7 @@ const TimeSelectionStep = ({
   onTimeChange,
   onTypeChange,
 }: TimeSelectionProps) => {
-  const { data: bookedTimeSlots, isLoading } = useBookedTimeSolts(
+  const { data: bookedTimeSlots } = useBookedTimeSolts(
     dentistId,
     selectedDate
   );

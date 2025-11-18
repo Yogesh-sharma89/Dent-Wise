@@ -22,8 +22,6 @@ const AdminDashboard = () => {
 
    const {data:appointments = [], isLoading:appointmentLoading} = useGetAppointments();
 
-   console.log(doctors);
-   console.log(appointments)
 
 //    calculated stats from real db data for admin 
 
