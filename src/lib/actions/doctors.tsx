@@ -91,7 +91,7 @@ export async function editDoctor(input:editInput){
     const adminEmail = process.env.ADMIN_EMAIL;
 
     if(!adminEmail) throw new Error('Admin email not configured');
-    
+
     if(user.email !== process.env.ADMIN_EMAIL) throw new Error('Only Admin can edit existing doctors')
       
      //validate coming input 
@@ -130,6 +130,8 @@ export async function editDoctor(input:editInput){
             isActive:input.isActive
         }
     })
+
+    revalidatePath('/admin');
 
     return updatedDoctor;
 

@@ -95,7 +95,7 @@ const AdminStats = ({totalDoctors,totalAppoinments,activeDoctors,completedAppoin
 
         <CardContent className='p-6'>
 
-            <div className='flex  items-center gap-4'>
+            <div className='flex items-center gap-4'>
 
                 <div className='w-12 h-12 flex items-center justify-center rounded-xl bg-linear-to-r from-primary/20 to-primary/10'>
 

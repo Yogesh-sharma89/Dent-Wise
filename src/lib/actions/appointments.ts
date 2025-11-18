@@ -2,6 +2,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "../prisma"
 import { AppointmentStatus } from "@/generated/enums";
+import { revalidatePath } from "next/cache";
 
 export async function getAppointments(){
     try{
@@ -175,6 +176,8 @@ export async function bookAppointment(input:BookAppointment){
 
       })
 
+      revalidatePath('/appointments');
+
       return newAppointment;
 
     }catch(err){
@@ -207,6 +210,8 @@ export async function updateAppointmentStatus(input:{id:string,status:Appointmen
         where:{id:input.id},
         data:{status:input.status}
     })
+
+    revalidatePath('/admin');
 
     return updatedAppointment;
 
