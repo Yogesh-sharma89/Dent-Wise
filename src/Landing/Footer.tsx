@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 /**
@@ -30,6 +32,15 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm font-medium">
               AI-powered dental assistance that actually helps.
             </p>
+
+            <div>
+              <Link href={'https://github.com/Yogesh-sharma89/Dent-Wise/releases/download/v1.0.0/dentwise-desktop.exe'}>
+              <Button>
+                Download for Windows
+              </Button>
+
+              </Link>
+            </div>
           </div>
 
           {/* product column  */}
