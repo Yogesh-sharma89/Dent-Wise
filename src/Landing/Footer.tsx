@@ -34,7 +34,7 @@ const Footer = () => {
             </p>
 
             <div>
-              <Link href={'https://github.com/Yogesh-sharma89/Dent-Wise/releases/download/v1.0.0/dentwise-desktop.exe'}>
+              <Link href={'https://github.com/Yogesh-sharma89/Dent-Wise/releases/download/v1.0.0/Dentwise.Setup.1.0.0.exe'}>
               <Button>
                 Download for Windows
               </Button>
